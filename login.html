@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Sign in | AIS SuperWIFI</title>
+		<meta http-equiv="pragma" content="no-cache" />
+		<meta http-equiv="expires" content="-1" />
+		<meta name="keywords" content="AIS SuperWIFI PORTAL">
+		<meta name="description" content="AIS SuperWIFI offers free wifi for guest try to use our hotspot service.">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon" />
+		<link rel="stylesheet" href="assets/css/style.css" media="screen">
+		<script src="assets/js/script.js"></script>
+      	<script src="assets/js/sweetalert.js"></script>
+		<script src="assets/js/disable-key.js"></script>
+		<script id="intergram" type="text/javascript" src="https://www.intergram.xyz/js/widget.js"></script>
+	</head>
+	<body>
+		<div id="loading">
+            <img id="loading-image" src="assets/images/loading.gif" alt="Loading" />
+        </div>
+		<div class="login-success" id="div1" style="display:none;">
+			<div class="loadpage">
+				<div class="loader">Loading...</div>
+				<p style="margin-top: -25px;">Authenticating...</p>
+			</div>
+		</div>
+		<div id="Expired" style="display: none;">
+			<div class='login' id="div2" style="display:block">
+				<div class="vertical-form">
+					<div style="margin:0;padding:0;display:inline"></div>
+					<legend>
+						<img class="logo" alt="AIS SuperWIFI" src="assets/images/logo.png" width="320px" />
+					</legend>
+					<div class='footer'>
+						<h4 style="font-size: 16px;">Dear client, <br>Your internet service is presently disconnected due to several overdues, we regret to notify you. <br> In order to prevent any <strong style="color:red !important">service interruptions</strong>, kindly make payment as soon as possible.<br>
+							<br> You can call 09457664949 or you can use live chat to chat instantly.<br>
+							<br> Best reguards,<br>
+							<strong>AIS SuperWIFI</strong>
+						</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="Hotspot" style="display: none;">
+			<div class='login'>
+				<div class="vertical-form">
+					$(if chap-id)
+						<form name="sendin" action="$(link-login-only)" method="post">
+							<input type="hidden" name="username" />
+							<input type="hidden" name="password" />
+							<input type="hidden" name="dst" value="$(link-orig)" />
+							<input type="hidden" name="popup" value="true" />
+						</form>
+						<script type="text/javascript" src="assets/js/md5.js"></script>
+						<script src="assets/js/script.js"></script>
+					$(endif)
+					<form name="login" action="$(link-login-only)" method="post"
+						$(if chap-id) onSubmit="return doLogin()" $(endif)>
+						<input type="hidden" name="dst" value="$(link-orig)" />
+						<input type="hidden" name="popup" value="true" />
+						<div style="margin:0;padding:0;display:inline"></div>
+						<legend>
+							<img class="logo" alt="AIS SuperWIFI" src="assets/images/logo.png" width="320px" />
+							Welcome Back!
+						</legend>
+						<div class="center">
+							<div class="inputBox">
+								<input type="password" name="username" class="form-control" id="id_password" onkeyup="this.setAttribute('value', this.value);" minlength="4" maxlength="17" value="" size="17"required/>
+								<label>Password</label>
+								<a href="javascript:void(0)"  style="margin: 1rem auto 0.7rem 5.8rem; position: absolute;">
+									<img alt="show password icon" src="assets/images/eye-close.png" width="25rem" height="1%" id="togglePassword">
+								</a>
+							</div>
+						</div>
+						<input name="submit" type="submit" value="Login" />
+						<div class='footer'>
+							$(if error)
+								<script>
+									setTimeout(function() {
+									swal({
+										title: "Invalid credentials.",
+										icon: "error",
+										button: "Close",
+										timer: "3000",
+									}).then(
+										function () {},
+										// handling the promise rejection
+										function (dismiss) {
+											if (dismiss === 'timer') {
+												//console.log('I was closed by the timer')
+											}
+										}
+									)
+									},2500);
+								</script>
+							$(endif)
+							<h5>Enter a password to access internet <br> If you don't know the password? <br> <strong> Ask the owner.</strong></h5>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!--
+			###Script auto identify###
+			$(if error)<br /><div style="color: #FF8080; font-size: 9px"><script type="text/javascript">
+			var error = "$(error)";
+			if (error == "simultaneous session limit reached") {
+			document.write("simultaneous session limit reached");
+			}
+			else if (error == "invalid password") {
+			document.write("Invalid Password");
+			}
+			else if (error == "no valid profile found") {
+			document.write("Credit limit reached, kinldy top up at reception should you wish to coninue browsing.");
+			}
+			else if(error.search("not found") != -1) {
+			document.write("User Not Found");
+			}
+			else document.write("$(error)<br />")
+			</script></div>$(endif)
+
+		<script type="text/javascript">
+				document.login.username.focus();
+		</script>
+		-->
+		<script src="assets/js/intergram.js"></script>
+		<script src="assets/js/plugin.js"></script>
+		<script src="assets/js/loader.js"></script>
+		<script>
+			var ipAddress = '$(ip)';
+			var ipNumeric = ipAddress.split('.').map(Number); // Convert IP address to an array of numeric values
+
+			var startRange = [10, 0, 0, 2]; // Start IP address range
+			var endRange = [10, 0, 0, 30]; // End IP address range
+
+			var isInRange =
+				ipNumeric[0] >= startRange[0] &&
+				ipNumeric[1] >= startRange[1] &&
+				ipNumeric[2] >= startRange[2] &&
+				ipNumeric[3] >= startRange[3] &&
+				ipNumeric[0] <= endRange[0] &&
+				ipNumeric[1] <= endRange[1] &&
+				ipNumeric[2] <= endRange[2] &&
+				ipNumeric[3] <= endRange[3];
+		  
+			if (isInRange) {
+				document.getElementById('Expired').style.display = 'block';
+				$("#Expired").show();
+			} else {
+				document.getElementById('Hotspot').style.display = 'block';
+				$("#Hotspot").show();
+			}
+		</script>
+		<!-- <div class="wrapper">
+			<img src="assets/images/cookie.png" alt="">
+			<div class="content">
+				<header>Cookies Consent</header>
+				<p>This website use cookies to ensure you get the best experience on our website.</p>
+				<div class="buttons">
+					<button class="item">I understand</button>
+					
+				</div>
+			</div>
+			<script src="assets/js/btn-accept-c.js"></script>
+		</div> -->
+	</body>
+</html>
